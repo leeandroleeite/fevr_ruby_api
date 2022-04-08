@@ -1,0 +1,34 @@
+<h1>Player: <%= @player.name %></h1>
+
+<ul>
+    <li><%= link_to "Delete", player_path(@player), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %></li>
+
+    <li><%= link_to "Edit", edit_player_path(@player) %></li>
+    <li><%= link_to "Return", players_path %></li>
+</ul>
+
+<hr>
+
+<h2>Player Notifications</h2>
+<% @player.notifications.each do |notification| %>
+  <p>
+    <strong>Message:</strong>
+    <%= notification.message %>
+  </p>
+<% end %>
+
+<hr>
+
+<h2>Add a notification for this player:</h2>
+<%= form_with model: [ @player, @player.notifications.build ] do |form| %>
+  <p>
+    <%= form.label :message %><br>
+    <%= form.text_area :message %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
