@@ -18,6 +18,17 @@ def update
 end
 
 def destroy
+    @player = Player.find(params[:player_id])
+    @notification = @player.notifications.destroy(params[:id])
+
+    render json: @player.notifications
+end
+
+def destroy_all
+    @player = Player.find(params[:player_id])
+    @notification = @player.notifications.destroy_all
+
+    render json: @player.notifications
 end
 
 private
