@@ -1,14 +1,14 @@
 class NotificationsController < ApplicationController
 def index
-end
-
-def show
+    @notifications = Player.find(params[:player_id]).notifications
+    render json: @notifications
 end
 
 def create
-    @player = Player.find(params[:id])
+    @player = Player.find(params[:player_id])
     @notification = @player.notifications.create(notification_params)
-    redirect_to player_path(@player)
+
+    render json: @player.notifications
 end
 
 def edit
@@ -21,7 +21,7 @@ def destroy
 end
 
 private
-    def comment_params
+    def notification_params
       params.require(:notification).permit(:message)
     end
 
