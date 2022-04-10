@@ -1,37 +1,39 @@
 class NotificationsController < ApplicationController
+
+    before_action :find_player, only: [:create, :destroy, :destroy_all]
+
 def index
     @notifications = Player.find(params[:player_id]).notifications
     render json: @notifications
 end
 
 def create
-    @player = Player.find(params[:player_id])
-    @notification = @player.notifications.create(notification_params)
+    @notification = @player.notifications.new(notification_params)
 
-    render json: @player.notifications
-end
-
-def edit
-end
-
-def update
+    if @notification.save
+        render json: @notification, status: :created
+    else
+        render json: @notification.errors, status: :unprocessable_entity
+    end
 end
 
 def destroy
-    @player = Player.find(params[:player_id])
     @notification = @player.notifications.destroy(params[:id])
-
-    render json: @player.notifications
+    render json: {success: true}, status: :no_content
 end
 
 def destroy_all
-    @player = Player.find(params[:player_id])
     @notification = @player.notifications.destroy_all
 
     render json: @player.notifications
 end
 
 private
+
+    def find_player
+        @player = Player.find(params[:player_id])
+    end
+
     def notification_params
       params.require(:notification).permit(:message)
     end

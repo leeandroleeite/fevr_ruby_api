@@ -7,18 +7,15 @@ class PlayersController < ApplicationController
     render json: @players, only: [:id, :name, :number, :age, :nationality, :position]
   end
 
-
   def show  
     if stale?(last_modified: @player.updated_at, public: true)
       render json: @player
     end
   end
 
-
   def new
     @player = Player.new
   end
-
 
   def create
     @player = Player.new(player_params)
@@ -30,11 +27,9 @@ class PlayersController < ApplicationController
     end
   end
 
-
   def edit
     render json: @player  
   end
-
 
   def update
     if @player.update(player_params)
@@ -44,14 +39,11 @@ class PlayersController < ApplicationController
     end
   end
 
-
   def destroy
     @player.destroy
     render json: {success: true}, status: :no_content
   end
 
-
-  
   private
 
     def find_player
