@@ -5,7 +5,6 @@ class Api::PlayersController < ApplicationController
   # GET /players
   def index
     @players = Player.all
-    byebug
     render json: @players
   end
 
