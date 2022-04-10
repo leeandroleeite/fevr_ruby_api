@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  root "players#index"
-
-  #get "/players", to: "players#index"
-  #get "/players/:id", to: "players#show"
-  
-  resources :players do
-    resources :notifications
+  namespace :api do
+    resources :players do
+      resources :notifications
+    end
   end
+  
 end

@@ -1,4 +1,4 @@
-class PlayersController < ApplicationController
+class Api::PlayersController < ApplicationController
 
   before_action :find_player, only: [:show, :update, :destroy]
 

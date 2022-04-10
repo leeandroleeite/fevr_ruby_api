@@ -1,4 +1,4 @@
-class NotificationsController < ApplicationController
+class Api::NotificationsController < ApplicationController
 
     before_action :find_player, only: [:create, :destroy, :destroy_all]
 
