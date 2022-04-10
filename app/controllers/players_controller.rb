@@ -2,43 +2,40 @@ class PlayersController < ApplicationController
 
   before_action :find_player, only: [:show, :update, :destroy]
 
+  # GET /players
   def index
     @players = Player.all
-    render json: @players, only: [:id, :name, :number, :age, :nationality, :position]
+    render json: @players
   end
 
+  # GET /players/:id
   def show  
     if stale?(last_modified: @player.updated_at, public: true)
       render json: @player
     end
   end
 
-  def new
-    @player = Player.new
-  end
-
+  # POST /players
   def create
     @player = Player.new(player_params)
 
     if @player.save
       render json: @player
     else
-      render :new, status: :unprocessable_entity
+      render json: @player, status: :unprocessable_entity
     end
   end
 
-  def edit
-    render json: @player  
-  end
-
+  # PUT or PATCH /players/:id
   def update
     if @player.update(player_params)
       render json: @player
     else
-      render :edit, status: :unprocessable_entity
+      render json: @player, status: :unprocessable_entity
     end
   end
 
+  # DELETE /players/:id
   def destroy
     @player.destroy
     render json: {success: true}, status: :no_content
