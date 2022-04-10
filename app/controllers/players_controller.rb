@@ -1,12 +1,13 @@
 class PlayersController < ApplicationController
+
+  before_action :find_player, only: [:show, :update, :destroy]
+
   def index
     @players = Player.all
-    render json: @players
+    render json: @players, only: [:id, :name, :number, :age, :nationality, :position]
   end
 
   def show  
-    @player = Player.find(params[:id])
-
     if stale?(last_modified: @player.updated_at, public: true)
       render json: @player
     end
@@ -28,11 +29,10 @@ class PlayersController < ApplicationController
   end
 
   def edit
-    @player = Player.find_by_id([params[:id]])
+    render json: @player  
   end
 
   def update
-    @player = Player.find_by_id([params[:id]])
 
     if @player.update(player_params)
       render json: @player
@@ -42,13 +42,17 @@ class PlayersController < ApplicationController
   end
 
   def destroy
-    @player = Player.find(params[:id])
     @player.destroy
-
-    redirect_to root_path, status: :see_other
+    render json: {success: true}, status: :no_content
   end
 
+  
   private
+
+    def find_player
+      @player = Player.find(params[:id])
+    end
+    
     def player_params
       params.require(:player).permit(:name, :number, :nationality, :age, :position)
     end
