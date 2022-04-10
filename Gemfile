@@ -30,6 +30,9 @@ gem "stimulus-rails"
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
 gem 'active_model_serializers', '~> 0.10.10'
 
+# Byebug - Rubygem for debugging
+gem 'byebug', '~> 11.1', '>= 11.1.3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
