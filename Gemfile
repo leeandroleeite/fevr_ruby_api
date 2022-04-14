@@ -33,6 +33,9 @@ gem 'active_model_serializers', '~> 0.10.10'
 # Byebug - Rubygem for debugging
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 
+# client library for making requests from Ruby.
+gem "http"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
