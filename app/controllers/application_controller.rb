@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 
-rescue_from ActiveRecord::RecordNotDestroyed, with: :not_destroyed
+    skip_before_action :verify_authenticity_token, raise: false
+    rescue_from ActiveRecord::RecordNotDestroyed, with: :not_destroyed
 
 private
 

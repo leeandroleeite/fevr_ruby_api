@@ -22,6 +22,8 @@ module FevrApp
 
     # This also configures session_options for use below
 
+    config.action_controller.default_protect_from_forgery = true
+
     config.session_store :cookie_store, key: '_interslice_session'
 
     # Required for all session management (regardless of session_store)

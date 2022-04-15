@@ -73,6 +73,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.17)
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
@@ -159,6 +160,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (0.4.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.2.3)
@@ -256,6 +258,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.10)
+  bcrypt (~> 3.1, >= 3.1.11)
   bootsnap
   byebug (~> 11.1, >= 11.1.3)
   capybara
@@ -263,6 +266,7 @@ DEPENDENCIES
   http
   importmap-rails
   puma (~> 5.0)
+  rack-cors (~> 0.4.0)
   rails (~> 7.0.2, >= 7.0.2.3)
   rspec-rails (~> 6.0.0.rc1)
   selenium-webdriver
