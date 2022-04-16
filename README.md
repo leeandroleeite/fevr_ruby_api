@@ -42,7 +42,8 @@ rails db:drop db:create db:migrate db:seed
 rails s
 ```
 
-### Fetch Belenenses team players from external API
+### Fetch players from external API mock: 
+https://github.com/RealFevr/challenge/blob/master/data/players.json
 ```
 rake players:get
 ```
