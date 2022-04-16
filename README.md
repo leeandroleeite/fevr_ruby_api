@@ -42,7 +42,7 @@ rails db:drop db:create db:migrate db:seed
 rails s
 ```
 
-### Fetch players from external API mock: 
+### Fetch players (Belenenses) from external API mock: 
 https://github.com/RealFevr/challenge/blob/master/data/players.json
 ```
 rake players:get
