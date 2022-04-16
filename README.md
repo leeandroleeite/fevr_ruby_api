@@ -46,3 +46,6 @@ rails s
 ```
 rake players:get
 ```
+
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2359a87a73c21f68bfc5?action=collection%2Fimport)
