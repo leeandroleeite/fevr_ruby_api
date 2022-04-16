@@ -1,10 +1,10 @@
-### Fevr Ruby API
+# Fevr Ruby API
 
-# Simple API for managing a database of football players.
+## Simple API for managing a database of football players.
 
 Status: This api is currently under active development and might not be ready for heavy production use
 
-# Features
+## Features
 
 - User Authentication
 - Manage players (Add new players, delete old ones)
@@ -14,7 +14,7 @@ Status: This api is currently under active development and might not be ready fo
 - Delete notifications older than one week
 
 
-# To Do
+### To Do
 
 - Users subscribing to players
 - Trigger notifications and send them to different users
@@ -22,20 +22,20 @@ Status: This api is currently under active development and might not be ready fo
 
 ## Get it Running
 
-# Clone the repo
+### Clone the repo
 git clone git@github.com:leeandroleeite/fevr_ruby_api.git
 
-# You first need to install the bundler gem:
+### You first need to install the bundler gem:
 gem install bundler
 
-# Install the required Dependencies
+### Install the required Dependencies
 bundle install
 
-# Setup Database
+### Setup Database
 rails db:drop db:create db:migrate db:seed
 
-# Start the server 
+### Start the server 
 rails s
 
-# Fetch Belenenses team players from external API
+### Fetch Belenenses team players from external API
 rake players:get
