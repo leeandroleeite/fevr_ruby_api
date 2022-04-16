@@ -23,19 +23,26 @@ Status: This api is currently under active development and might not be ready fo
 ## Get it Running
 
 ### Clone the repo
+```
 git clone git@github.com:leeandroleeite/fevr_ruby_api.git
-
-### You first need to install the bundler gem:
-gem install bundler
+```
 
 ### Install the required Dependencies
+```
 bundle install
+```
 
 ### Setup Database
+```
 rails db:drop db:create db:migrate db:seed
+```
 
 ### Start the server 
+```
 rails s
+```
 
 ### Fetch Belenenses team players from external API
+```
 rake players:get
+```
