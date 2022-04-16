@@ -8,3 +8,4 @@
 
 admin = Admin.create({email: "admin@fevr.pt", password: "password" })
 user = User.create({email: "user@fevr.pt", password: "password" })
+player = Player.create!({name: "Bruno Fernandes", number: '18', nationality: 'Portugal', age: '27', position: 'M' })
