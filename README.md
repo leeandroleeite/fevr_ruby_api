@@ -8,7 +8,6 @@ Status: This api is currently under active development and might not be ready fo
 
 - User Authentication
 - Manage players (Add new players, delete old ones)
-- Sort player’s listing based on position, nationality or age
 - Add notifications for each individual player
 - Fetch players from external API and update on the Database
 - Delete notifications older than one week
